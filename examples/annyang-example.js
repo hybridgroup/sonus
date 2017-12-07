@@ -32,6 +32,7 @@ sonus.on('partial-result', result => console.log("Partial", result))
 
 sonus.on('final-result', result => {
   console.log("Final", result)
+  Sonus.parse(result)
   if (result.includes("stop")) {
     Sonus.stop()
   }

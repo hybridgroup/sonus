@@ -118,7 +118,6 @@ Sonus.init = (options, recognizer) => {
   csr.on('partial-result', transcript => sonus.emit('partial-result', transcript))
   csr.on('final-result', transcript => {
     sonus.emit('final-result', transcript)
-    Sonus.annyang.trigger(transcript)
   })
 
   sonus.trigger = (index, hotword) => {
@@ -165,5 +164,7 @@ Sonus.pause = () => record.pause()
 Sonus.resume = () => record.resume()
 
 Sonus.stop = () => record.stop()
+
+Sonus.parse = (transcript) => Sonus.annyang.trigger(transcript)
 
 module.exports = Sonus
